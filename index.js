@@ -37,9 +37,7 @@ function isNotDone(taskAndIsDonePair) {
  * @return {array} TODO一覧
  */
 function list() {
-    return tasks
-        .filter(task => isNotDone(task))
-        .map(t => t.name);
+    return tasks.filter(isNotDone).map(t => t.name);
 }
 
 module.exports = {
