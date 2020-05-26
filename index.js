@@ -40,7 +40,28 @@ function list() {
     return tasks.filter(isNotDone).map(t => t.name);
 }
 
+/**
+ * TODOを完了状態にする
+ * @param {string} task
+ */
+function done(task) {
+    const indexFound = tasks.findIndex(t => t.name === task);
+    if (indexFound != -1) {
+        tasks[indexFound].state = true;
+    }
+}
+
+/**
+ * 完了済みのタスクの一覧の配列を取得する
+ * @return {array}
+ */
+function donelist() {
+    return tasks.filter(isDone).map(t => t.name);
+}
+
 module.exports = {
     todo,
-    list
-}
+    list,
+    done,
+    donelist
+};
