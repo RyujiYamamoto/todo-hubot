@@ -59,9 +59,21 @@ function donelist() {
     return tasks.filter(isDone).map(t => t.name);
 }
 
+/**
+ * 項目を削除する
+ * @param {string} task
+ */
+function del(task) {
+    const indexFound = tasks.findIndex(t => t.name === task);
+    if (indexFound != -1) {
+        tasks.splice(indexFound, 1);
+    }
+}
+
 module.exports = {
     todo,
     list,
     done,
-    donelist
+    donelist,
+    del
 };
